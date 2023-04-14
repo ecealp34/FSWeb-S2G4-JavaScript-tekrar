@@ -83,7 +83,7 @@ console.log("2", CemberinAlani(15, pi))
 
 	enkucuk = sayilar[0];
     
-	for (var i = 0; i < sayilar.length; i++) {
+	for (let i = 0; i < sayilar.length; i++) {
 		if(sayilar[i] > enbuyuk) 
 		{ 
 			enbuyuk = sayilar[i]
@@ -144,20 +144,38 @@ console.log("2", CemberinAlani(15, pi))
 	
 	//3f çözümü
 
+	let tekrarDizisi = [];
+
 	tekraredensayilar = [];
 
-    const counts = {};
-		
-	sayilar.forEach(element => {
+    let counts = {};
 
-		counts[element] = (counts[element] || 1) + 1;
+	tekrarDizisi = sayilar.forEach(
+ 
+    (x) => (counts[x] = (counts[x] || 0) + 1)
 
-	});
+	);
 
-	console.log("3f", counts);
+	const countsarray = Object.entries(counts);
 
+	console.log(countsarray)
 
+	let filtre = countsarray.filter((sayi) => sayi[1] > 1);
 	
+	for(let i = 0; i < filtre.length; i++) {
+
+		tekraredensayilar.push(
+
+    `${filtre[i][0]} sayısı ${filtre[i][1]} kere tekrar edilmiştir`
+
+		);
+
+	}
+	
+
+	console.log("3f", tekraredensayilar);
+
+
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 function sa(){
     console.log('Kodlar çalışıyor');
